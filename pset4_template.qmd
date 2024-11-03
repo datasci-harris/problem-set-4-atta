@@ -193,6 +193,7 @@ closed_hospitals = active_2016_only.dropna(subset=['Year_Closed']).reset_index(d
 print(f"Number of suspected hospital closures: {len(closed_hospitals)}")
 closed_hospitals[['FAC_NAME', 'ZIP_CD', 'Year_Closed']]
 ```
+
 2. 
 ```{python}
 # Sort the closed hospitals by facility name
@@ -201,6 +202,7 @@ sorted_closed_hospitals = closed_hospitals.sort_values(by='FAC_NAME').reset_inde
 # Display the names and year of suspected closure for the first 10 rows
 sorted_closed_hospitals[['FAC_NAME', 'Year_Closed']].head(10)
 ```
+
 3. 
     a.
 ```{python}
@@ -251,6 +253,7 @@ sorted_corrected_closures = corrected_closures.sort_values(by='FAC_NAME')
 sorted_corrected_closures[['FAC_NAME', 'ZIP_CD', 'Year_Closed']].head(10)
 ```
 ## Download Census zip code shapefile (10 pt) 
+
 1. 
     a.
 .shp: Main file with geometric shapes of features.
@@ -273,6 +276,7 @@ for file_name in os.listdir(shapefile_directory):
 
 ```
 This provides an overview of file sizes, with .shp being the largest due to detailed geometry data.
+
 2. 
 ```{python}
 import geopandas as gpd
@@ -376,6 +380,7 @@ print("Sample of Texas and bordering states ZIP codes:\n", zips_texas_borderstat
 The output shows:
 Number of unique ZIP codes in Texas: 1935
 Number of unique ZIP codes in Texas and bordering states: 4057
+
 3. 
 ```{python}
 # Filter hospital data 
@@ -490,6 +495,7 @@ distance_in_degrees = 0.0753484763  # Computed average distance in degrees
 distance_in_miles = degrees_to_miles(distance_in_degrees)
 print("Average distance to nearest hospital (in miles):", distance_in_miles)
 ```
+
 5. 
     a.
 ```{python}
@@ -502,6 +508,7 @@ average_distance_degrees = zips_texas_centroids["nearest_hospital_distance_degre
 print("Average distance to the nearest hospital for each ZIP code in Texas (in degrees):", average_distance_degrees)
 ```
 It is in Degrees. 
+
     b.  
 ```{python}
 import math
@@ -536,6 +543,7 @@ print("Corrected average distance to nearest hospital (in miles):", average_dist
 - The initial result of 996,695.26 miles for the average hospital distance was unrealistic, indicating a unit conversion issue.
 
 - After re-projecting the data, the corrected average distance was 9.61 miles, aligning with realistic hospital distribution in Texas and providing an accurate measure.
+
     c.
 ```{python}
 # Plotting the choropleth map for avg distance to nearest hospital in Texas
@@ -556,6 +564,7 @@ ax.axis('off')  # Hides the axis
 # Show the plot
 plt.show()
 ```
+
 ## Effects of closures on access in Texas (15 pts)
 1. 
 ```{python}
@@ -655,8 +664,8 @@ plt.title("Texas ZIP Codes Categorized by Impact of Hospital Closures (2016-2019
 plt.axis('off')  # Hide axis for a cleaner look
 plt.show()
 ```
-## Reflecting on the exercise (10 pts) 
 
+## Reflecting on the exercise (10 pts) 
 1. 
 - The first-pass method risks misidentifying closures because it doesn’t account for temporary closures, facility mergers, or changes in hospital IDs. This can lead to over- or under-counting affected areas. To improve, we could:
 - Cross-reference closures with state and local health department data to verify permanent status.
