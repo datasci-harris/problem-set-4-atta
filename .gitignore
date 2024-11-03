@@ -1,0 +1,14 @@
+# Ignore CSV files (e.g., data files)
+*.csv
+
+# Ignore shapefiles
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+
+# Ignore other common data files
+*.geojson
+*.json
+*.xlsx
