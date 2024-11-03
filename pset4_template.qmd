@@ -34,8 +34,8 @@ include-before-body:
 8. (Partner 1): push  `ps4.qmd` and `ps4.pdf` to your github repo.
 9. (Partner 1): submit `ps4.pdf` via Gradescope. Add your partner on Gradescope.
 10. (Partner 1): tag your submission in Gradescope
-## Download and explore the Provider of Services (POS) file (10 pts)
 
+## Download and explore the Provider of Services (POS) file (10 pts)
 1. For the 2016 data, I pulled the following variables:
 
     i. `PRVDR_NUM`: Unique CMS certification number for each hospital
@@ -158,6 +158,7 @@ plt.show()
     b. 
 The identical values in both plots indicate that each short-term hospital appears only once per year, with no duplicates. This structure confirms that each hospital’s CMS certification number is unique annually, allowing for clear year-over-year tracking.
 ## Identify hospital closures in POS file (15 pts) (*)
+
 1. 
 ```{python}
 # Step 1: Filter active hospitals in each year
